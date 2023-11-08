@@ -19,7 +19,7 @@
       let text = "";
       let frame = 0;
       let m = 0;
-      let speed = 4;
+      let speed = 0.5;
 
       document.getElementById("anim").innerText = frames[frame];
 
@@ -28,14 +28,14 @@
         m += speed;
         console.log(m);
         if (frame == frames.length) frame = 0;
-        if (m > 1525) {
+        if (m > 100) {
           m = 0;
           speed *= 2;
         }
         document.getElementById("anim").innerText = frames[frame];
-        document.getElementById("anim").style.marginLeft = m + "px";
+        document.getElementById("anim").style.marginLeft = m + "vw";
       }
-      setInterval(update, speed * 50);
+      setInterval(update, speed * 400);
     </script>
   </body>
 </html>
