@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Walking Apple</title>
+  </head>
+  <body>
+    <p id="anim"></p>
+
+    <script>
+      const frames = [
+        "🍎\n  |\n /\\\n | |",
+        "🍎\n  |\n /\\\n |  \\",
+        "🍎\n  |\n /\\\n | |",
+        "🍎\n  |\n /\\\n/  |",
+      ];
+      let text = "";
+      let frame = 0;
+      let m = 0;
+      let speed = 4;
+
+      document.getElementById("anim").innerText = frames[frame];
+
+      function update() {
+        frame++;
+        m += speed;
+        console.log(m);
+        if (frame == frames.length) frame = 0;
+        if (m > 1525) {
+          m = 0;
+          speed *= 2;
+        }
+        document.getElementById("anim").innerText = frames[frame];
+        document.getElementById("anim").style.marginLeft = m + "px";
+      }
+      setInterval(update, speed * 50);
+    </script>
+  </body>
+</html>
